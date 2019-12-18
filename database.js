@@ -17,6 +17,17 @@ exports.getContact = ({ id }) => {
     return dbQuery(sql);
 };
 
+exports.books = [
+  {
+    title: 'Harry Potter and the Chamber of Secrets',
+    author: 'J.K. Rowling',
+  },
+  {
+    title: 'Jurassic Park',
+    author: 'Michael Crichton',
+  },
+];
+
 //note
 //good example on how to create models
 
