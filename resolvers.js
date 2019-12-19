@@ -7,20 +7,25 @@ const Employee = require('./models').Employee;
 
 const getBookById = async (parent, args) => {
   const queryStr = `SELECT * FROM contacts WHERE id=${args.id}`;
-  console.log(queryStr);
+  // console.log(queryStr);
   return getContact(args);
 }
 
 const getCompanies = async (parent, args) => {
-  const companies = await Company.findAll();
-  console.log(companies);
+  const filter = (args.id)? { where: {id: args.id} }: {};
+  filter['include'] = [{ model: Employee, as: 'employees' }];
 
+  const companies = await Company.findAll(filter);
+  
   return companies
 }
 
 const getEmployees = async (parent, args) => {
-  const filter = (args.id)? {where: {id: args.id}}: {};
+  const filter = (args.id)? { where: {id: args.id} }: {};
+  filter['include'] = [{ model: Company,  as: 'company' }];
+  
   const employees = await Employee.findAll(filter);
+  // console.log(employees[0].company);
   return employees
 }
 

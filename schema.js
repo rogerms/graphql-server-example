@@ -44,7 +44,9 @@ const typeDefs = gql`
   }
 
   type Company {
+    id: Int
     name: String
+    employees:[Employee]
   }
   
   type Employee {
@@ -54,6 +56,7 @@ const typeDefs = gql`
     companyId: String
     createdAt: String
     updatedAt: String
+    company: Company
   }
   # The "Query" type is special: it lists all of the available queries that
   # clients can execute, along with the return type for each. In this
@@ -62,7 +65,7 @@ const typeDefs = gql`
     books: [Book],
     book: Book
     bookById(id:Int!):Contact
-    companies: [Company]
+    companies(id:Int): [Company]
     employees(id:Int): [Employee]
   }
 

@@ -23,6 +23,25 @@ const GET_BOOK = gql`
     }
   }`;
 
+const GET_EMPLOYEE = gql`
+query employees($id: Int!) {
+  employees(id: $id) {
+    name
+    salary
+    companyId
+  }
+}`;
+
+const GET_COMPANIES = gql`
+query company($id: Int) {
+  companies(id: $id)  {
+    name
+    employees {
+      name
+    }
+  }
+}`;
+
 describe('Test Books queries and mutations ', () => {
   const server = new ApolloServer({
     typeDefs,
@@ -58,4 +77,29 @@ describe('Test Books queries and mutations ', () => {
     expect(res.data.books).is.a('array');
     expect(res.data.books).has.length.greaterThan(1);
   });
+
+  it('fetches employee', async () => {
+    // use the test server to create a query function
+
+    // run query against the server and snapshot the output
+    const res = await query({ query: GET_EMPLOYEE, variables: {id: 5} } );
+    
+    // console.log(res);
+    expect(res.data.employees).is.a('array');
+    expect(res.data.employees).has.length.greaterThan(0);
+  });
+
+  it.only('fetches companies', async () => {
+    // use the test server to create a query function
+
+    // run query against the server and snapshot the output
+    const res = await query({ query: GET_COMPANIES, variables: {id: 11} } );
+    //console.log(res.data.companies);
+
+    expect(res.data.companies).is.a('array');
+    expect(res.data.companies).has.length.greaterThan(0);
+    expect(res.data.companies[0].employees).is.a('array');
+  });
 });
+
+

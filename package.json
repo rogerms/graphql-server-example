@@ -19,7 +19,6 @@
   "dependencies": {
     "apollo-server-express": "^2.9.14",
     "graphql": "^14.5.8",
-    "mysql": "^2.17.1",
     "mysql2": "^2.0.2",
     "sequelize": "^5.21.3"
   },
@@ -27,7 +26,6 @@
     "apollo-server-testing": "^2.9.14",
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
-    "nodemon": "^2.0.2",
-    "sequelize-cli": "^5.5.1"
+    "nodemon": "^2.0.2"
   }
 }

@@ -25,3 +25,6 @@ server.applyMiddleware({ app });
 app.listen({ port: 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );
+
+
+//todo to use sequelize init, migration etc you need to install sequelize-cli -g (global)
