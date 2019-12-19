@@ -28,6 +28,33 @@ const typeDefs = gql`
     location: String
   }
 
+  input ContactInput {
+    name: String!
+    company: String
+    notes: String
+    email: String
+    phone: String
+    street: String
+    city: String
+    state: String
+    zip: String,
+    region: String
+    website: String
+    location: String
+  }
+
+  type Company {
+    name: String
+  }
+  
+  type Employee {
+    name: String
+    designation: String
+    salary: String
+    companyId: String
+    createdAt: String
+    updatedAt: String
+  }
   # The "Query" type is special: it lists all of the available queries that
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
@@ -35,6 +62,12 @@ const typeDefs = gql`
     books: [Book],
     book: Book
     bookById(id:Int!):Contact
+    companies: [Company]
+    employees(id:Int): [Employee]
+  }
+
+  type Mutation {
+    createContact(input: ContactInput!):Contact
   }
 `;
 
