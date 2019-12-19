@@ -4,10 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test.js",
     "start": "nodemon index.js"
   },
-  "keywords": ["graphql", "apollo-server", "ApolloServer", "graphql-tag", "mysql-connect"],
+  "keywords": [
+    "graphql",
+    "apollo-server",
+    "ApolloServer",
+    "graphql-tag",
+    "mysql-connect"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -16,6 +22,9 @@
     "mysql": "^2.17.1"
   },
   "devDependencies": {
+    "apollo-server-testing": "^2.9.14",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
     "nodemon": "^2.0.2"
   }
 }

@@ -5,7 +5,7 @@ dbQuery = (sql) => {
   return new Promise((resolve, reject) => {
     db.query(sql, (err, results) => {
       if (err) reject(err);
-      console.log(results[0]);
+      // console.log(results[0]);
       resolve(results[0]);
     });
   });
