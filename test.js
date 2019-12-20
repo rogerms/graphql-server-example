@@ -89,7 +89,7 @@ describe('Test Books queries and mutations ', () => {
     expect(res.data.employees).has.length.greaterThan(0);
   });
 
-  it.only('fetches companies', async () => {
+  it('fetches companies', async () => {
     // use the test server to create a query function
 
     // run query against the server and snapshot the output

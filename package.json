@@ -1,7 +1,7 @@
 {
   "name": "graphql-server-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "test graphql apollo-server, apollo-server-testing, and mysql",
   "main": "index.js",
   "scripts": {
     "test": "mocha test.js",
@@ -12,7 +12,9 @@
     "apollo-server",
     "ApolloServer",
     "graphql-tag",
-    "mysql-connect"
+    "mysql-connect",
+    "apollo-server-testing",
+    "sequelize"
   ],
   "author": "",
   "license": "ISC",
